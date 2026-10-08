@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-brand: #FFE600;
+  --color-brand-hover: #F4D900;
+  --color-ink: #111214;
+  --color-ink-soft: #232428;
+  --color-paper: #FFFFFF;
+  --color-surface: #F5F5F2;
+  --color-surface-2: #ECEDEA;
+  --color-border: #DDDEDA;
+  --color-whatsapp: #0CBF54;
+  --color-whatsapp-hover: #099E46;
+  --color-focus: #1469F2;
+
+  /* Strict border-radius tokens */
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-card: 8px;
+  --radius-panel: 10px;
+  --radius-button: 8px;
+
+  --container-lp: 1248px;
+  --container-bio: 560px;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --radius-card: 6px;
+    --radius-panel: 8px;
+    --radius-button: 6px;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Guard against unwanted roundness */
+.rounded-card-strict {
+  border-radius: var(--radius-card) !important;
+}
+
+.rounded-panel-strict {
+  border-radius: var(--radius-panel) !important;
+}
+
+.rounded-btn-strict {
+  border-radius: var(--radius-button) !important;
+}
+
+/* Pause animation on hover */
+.pause-hover:hover {
+  animation-play-state: paused;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
